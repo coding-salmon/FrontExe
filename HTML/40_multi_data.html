@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레드향 주문하기</title>
+</head>
+<body>
+    <h1>여러 데이터 나열하기</h1>
+    <form action="">
+        <label for="prod1">상품선택</label>
+        <select id="prod1">
+            <option value="special_3" selected>선물용 3k</option>
+            <option value="special_5" selected>선물용 5k</option>
+            <option value="family_3" selected>가정용 3k</option>
+            <option value="family_5" selected>가정용 5k</option>
+        </select>
+        <hr>
+        <laber for="prod2">포장여부</laber>
+        <input type="text" id="prod2" list="pack">
+        <datalist id="pack">
+            <option vlaue="package">선물 포장</option>
+            <option vlaue="no_package">포장 안함</option>
+        </datalist>
+    </form>
+    
+</body>
+</html>
