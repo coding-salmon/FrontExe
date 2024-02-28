@@ -1,0 +1,10 @@
+h1{
+    margin: auto;
+    border: 2px solid blue;
+    padding: 20px blue;
+     background-color: blue; 
+    color: white;
+}
+.red{
+    color: red;
+}
