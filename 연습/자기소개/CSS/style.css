@@ -1,0 +1,44 @@
+header{
+    height: 280px; /*헤더높이*/
+    margin: 10px;
+    padding: 10px 100px;
+    background-color: black;
+    color: wheat;
+}
+main{
+    min-height: calc(100vh-360px);
+    margin: 10px;
+    padding: 10px 80px;
+}
+footer{
+    height: 80px; /*헤더높이*/
+    margin: 10px;
+    padding: 10px 100px;
+    background-color: black;
+    color: white;
+}
+h1{
+    font-size: 4em;
+}
+#h1p{
+    font-size:2em;
+}
+
+
+
+main{
+    display:flex;
+    flex: 2;
+    flex-direction: row;
+    background-color: rgb(17, 17, 17);
+    color: white;
+}
+section{
+    font-size:1.5em;
+    flex:2;
+    padding:20px;
+    border:1px solid #000;
+    
+}
+
+

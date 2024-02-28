@@ -1,31 +1,53 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>폰트 색상</title>
-    <style>
-        h1{
-            color: #0000ff;
-        }
-        p{
-            color: green;
-        }
-        .accent{
-            color:hsl(0,100%,50%);
-            font-weight: bold;
-        }
-        .accent1{
-            color:hsl(244, 76%, 39%);
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <h1>레드향</h1>
-            <p >껍질에 붉은 빛이 돌아 <span class="accent">레드향</span>이라 불린다.</p>
-            <p>껍질이 얇아서 까기 쉬우며 과육이 부드럽고 <span class="accent1">당도</span>가 높아 신맛을 싫어하는 어린이와 나이 많은 노인들에게 안성맞춤인 품종이다.</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>폰트 색상</title>
+        <style>
+            body {
+                background: url("../images/bg.jpg") no-repeat fixed;
+                background-size: cover;
+                text-align: center;
+            }
+            h1 {
+                color: #0000ff;
+            }
+            p {
+                color: green;
+            }
+            .accent {
+                color: hsl(0,100%,50%);
+                font-weight: bold;
+            }
+            .accent1 {
+                color: hsl(244, 76%, 39%);
+                font-weight: bold;
+
+                h2 {
+                    font-size: 160px;
+                    font-family: Verdana, Geneva, Tahome;
+                }
+            }
+            .color1 {
+                color: rgb(255,255,255);
+
+            }
+            .color2 {
+                color: rgb(255,255,255,0.5);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="desc">
+            <h1>레드향</h1>
+            <p >껍질에 붉은 빛이 돌아
+                <span class="accent">레드향</span>이라 불린다.</p>
+            <p>껍질이 얇아서 까기 쉬우며 과육이 부드럽고
+                <span class="accent1">당도</span>가 높아 신맛을 싫어하는 어린이와 나이 많은 노인들에게 안성맞춤인 품종이다.</p>
             <p>품종명 甘平(감평)은 맛이 달면서(감), 과일의 형태가 평평(울퉁불퉁하지 않고 밋밋)하다는 뜻이다.</p>
-    
-</body>
+        </div>
+        <h2 class="color1">HTML</h2>
+        <h2 class="color2">CSS</h2>
+    </body>
 </html>

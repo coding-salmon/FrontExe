@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>웹 기술 - 기본 - 내부스타일</title>
     <style>
-        h1{
+        h1{ 
+            display: inline-block;
             background-color: black;
-            padding: #000;
-            margin: 10px 20px;
+            padding: 10px;
+          
             color: white;
         }
-        p{ font-size: 20px;
+        ul{
+            list-style: none;
+        }
+        li{ font-size: 1.2em;
+            line-height: 1.5;
              color: blue;
         }
 
@@ -19,11 +24,11 @@
 </head>
 <body>
     <h1>웹 기술 - 기본</h1>
-    <div>
-        <p>HTML</p>
-        <p>CSS</p>
-        <p>Javascript 기초</p>
-    </div>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript 기초</li>
+    </ul>
     
 </body>
 </html>
