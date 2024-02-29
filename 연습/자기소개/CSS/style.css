@@ -5,6 +5,9 @@ header{
     background-color: black;
     color: wheat;
 }
+side{
+    width: 300px;
+}
 main{
     min-height: calc(100vh-360px);
     margin: 10px;
