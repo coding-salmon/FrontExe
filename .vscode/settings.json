@@ -1,4 +1,5 @@
 {
     "pasteImage.basePath": "${currentFileDir}/images/",
-    "pasteImage.prefix": "./"
+    "pasteImage.prefix": "./",
+    "liveServer.settings.multiRootWorkspaceName": "FrontExe"
 }
