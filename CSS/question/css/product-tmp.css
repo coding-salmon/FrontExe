@@ -1,0 +1,43 @@
+
+body{
+    background-color: #fff;
+}
+div{
+    border: 1px dotted #222;
+    
+    
+}
+#container{
+    width: 600px;
+    border: none;
+    margin: 20px auto;
+    background-color: #fff;
+
+    
+    
+}
+table, th, td{
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+th,td{
+    padding: 10px 20px;
+}
+#description{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+}
+#receipe{
+    margin: 20px;
+    padding: 20px;
+
+}
+#package{
+    margin: 20px;
+    padding: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+}
