@@ -1,75 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        
-           
-            
-        
-        ul{
-            list-style: none;
-        }
-        h1{
-            font-size: 6em;
-        }
-        li{
-            font-size: 3em;
-        }
-        table,th,td{
-            border: 1px solid wheat;
-            border-collapse: collapse;
-            margin: 20px;
-            padding: 20px;
-                       
-            
-        }
-        table{
-            margin: auto;
-            font-size: 3em;
-        }
-        body{
-            text-align: center;
-            background-color: black;
-            color: wheat;
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            .hobby{
+                width: 1200px;
+                margin: 0 auto;
+            }
 
-        
-        }
-        
-    </style>
-</head>
-<body>
-    <div class="intro">
-        <h1>Hobby</h1>
-        <p>클라이밍</p>
-        <p>등산</p>
-        <p>헬스</p>
-        <p>크로스핏</p>
-        <p>스노우보드</p>
+            .navi{
+                width: 1200px;
+                height: 300px;
+                padding-bottom: 10px;
+                border-bottom: 2px;
+            }
 
-        <p>인생맛집 TOP5</p>
-        
-        
+            .navi ul li {
+                float: left;
+                width: 500px;
+                padding: 30px;
+            }
+            ul {
+                list-style: none;
+            }
+            h1 {
+                font-size: 6em;
+            }
+            li {
+                font-size: 3em;
 
+            }
 
+            body {
+                text-align: center;
+                background-color: black;
+                color: wheat;
+
+            }
+            a:link {
+                color: wheat;
+            }
+            a:visited {
+                color: wheat;
+            }
+            hr{
+                color: wheat;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="hobby">
+            <h1>Hobby</h1>
         
-    </div>
-    <br>
-    <br>
-    <hr color="wheat">
-    <br>
-
-    <div class="ex">
-        <ul>
-            
-            <li>extends : 삼성전자판매</li>
-            <li>근무이력 : 판매사원4년,팀장2년,점장2년</li>
-            <li>특이사항 : 전사판매왕3번, 대표이사 모범상</li>
+        <nav class="navi">
+            <ul>
+                <li>
+                    <a href="#climb">클라이밍&등산</a>
+                </li>
+                <li>
+                    <a href="#crossfit">헬스&크로스핏</a>
+                </li>
+                <li>
+                    <a href="#snowboard">스노우보드</a>
+                </li>
+                <li>
+                    <a href="#food">맛집</a>
+                </li>
             </ul>
-        
-    </div>
+            </nav>
+        </div>
+        <hr color="wheat">
+        <div id="climb" class="contents">
+            <h2>클라이밍&등산</h2>
+            <p><video src="../자기소개/images/climb.mp4" controls></video></p>
+            <p><img src="../자기소개/images/bac100.jpg"></p>
+        </div>
+
+        <div id="crossfit" class="contents">
+            <h2>헬스&크로스핏</h2>
+            <p></p>
+        </div>
+
+        <div id="snowboard" class="contents">
+            <h2>스노우보드</h2>
+            <p></p>
+        </div>
+
+        <div id="food" class="contents">
+            <h2>맛집</h2>
+            <p>인생맛집 TOP3</p>
+        </div>
     
-</body>
+    </body>
 </html>

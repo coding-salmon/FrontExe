@@ -1,24 +1,26 @@
 header{
-    height: 280px; /*헤더높이*/
+    height: 250px; /*헤더높이*/
     margin: 10px;
     padding: 10px 100px;
     background-color: black;
     color: wheat;
+    text-align: center;
 }
-side{
-    width: 300px;
-}
+
 main{
     min-height: calc(100vh-360px);
     margin: 10px;
     padding: 10px 80px;
 }
 footer{
+    clear: left;
+   
     height: 80px; /*헤더높이*/
     margin: 10px;
     padding: 10px 100px;
     background-color: black;
     color: white;
+    font-size: 2em;
 }
 h1{
     font-size: 4em;
@@ -30,6 +32,7 @@ h1{
 
 
 main{
+    clear: left;
     display:flex;
     flex: 2;
     flex-direction: row;
@@ -37,12 +40,34 @@ main{
     color: white;
 }
 section{
-    font-size:1.5em;
+    float:left;
+    font-size:3em;
     flex:2;
     padding:20px;
     border:1px solid #000;
+    margin: 80px ;
+    width: 20%;
+    text-align: center;
+    height: 300px;
+    
+    
+    
     
 }
 
+body{
+    background-color: black;
+    
+}
 
+a:link{
+    color: wheat;
+}
+a:visited{
+    color: wheat;
+}
+
+.f{
+    float: left;
+}
 
