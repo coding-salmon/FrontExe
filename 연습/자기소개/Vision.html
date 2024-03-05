@@ -6,41 +6,69 @@
     <title>Document</title>
     <style>
         
-        body{
+        #wrapper{
+            display: flex;
+            justify-content: space-around;
+        }
+        h1{
             text-align: center;
+            font-size: 8em;
+           
+        }
+        body{
             background-color: black;
             color: wheat;
         }
-        .text{
-            margin: auto;
-            font-size: 3em;
+        .img1, .img2, .img3{
+            display: none;
         }
-        h1{
-            font-size: 5em;
+        .box1:hover .img1{
+            display: block;
+            height: 400px;
         }
+        .box2:hover .img2{
+            display: block;
+            height: 400px;
+            background-color: white;
+        }
+        .box3:hover .img3{
+            display: block;
+            height: 400px;
+            background-color: white;
+        }
+            
+
+        .box1, .box2, .box3{
+            
+            font-size: 8em;
+            font-weight: bold;
+            margin: 0px;
+            padding: 0px;
+            width:fit-content ;
+        }
+        
+       
+        
+
         
     </style>
 </head>
 <body>
-    <div class="intro">
+    
         <h1>Vision</h1>
-        </div>
-        <div class="text">
-        <p>커뮤니케이션</p>
-        <p>시장의 흐름</p>
-        <p>유에서 유를 재창조</p>
+        
+        <div id="wrapper">
+            <div class="box1">?
+                <img class="img1" src="../자기소개/images/create.jpg">
+            </div>
+
+            <div class="box2">!
+                <img class="img2" src="../자기소개/images/want.png">
+            </div>
+                
+            <div class="box3">^^
+                <img class="img3" src="../자기소개/images/teamwork.png">
+            </div>        
     </div>
-        
-
-
-        
-    
-    <br>
-    <br>
-    <hr color="wheat">
-    <br>
-
-    
-    
 </body>
 </html>
