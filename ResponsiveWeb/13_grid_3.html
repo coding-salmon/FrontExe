@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrapper1{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /*화면을 꽉채우도록 자동 늘림*/
+            margin-bottom: 20px;
+        
+        }
+
+        #wrapper2{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); /*컬럼 최소 너비만큼 채워서 표시*/
+
+        }
+        h1{
+            font-size:24px;
+
+        }
+
+        .items{
+            padding: 15px;
+            background-color: #eee;
+        }
+        .items:nth-child(odd){
+            background-color: #bbb;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>auto-fit일 때</h1>
+    <div id="wrapper1">
+        <div class="items">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </div>
+        <div class="items">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has b</div>
+        <div class="items">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+        <div class="items">Lorem Ipsum is simply dummy text of the printing</div>
+        <div class="items">Lorem Ipsum is simply dummy</div>
+    </div>
+
+    <h1>auto-fill일 때</h1>
+    <div id="wrapper2">
+        <div class="items">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </div>
+        <div class="items">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has b</div>
+        <div class="items">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+        <div class="items">Lorem Ipsum is simply dummy text of the printing</div>
+        <div class="items">Lorem Ipsum is simply dummy</div>
+    </div>
+    
+</body>
+</html>

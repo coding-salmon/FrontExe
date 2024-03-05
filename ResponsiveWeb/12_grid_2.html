@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrapper{
+            display: grid;
+            /* grid-template-columns: repeat(3,1fr); */
+            /* grid-template-columns: 1fr 1fr 1fr;
+             */
+             grid-template-columns: 2fr 1fr 3fr;
+            grid-template-rows: 10minmax(100px, auto); /* 줄 높이 최소 100px*/
+        }
+        .items{
+            padding: 10px;
+            background-color: #eee;
+        }
+        .items:nth-child(odd){
+            background-color: #bbb;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="items">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </div>
+        <div class="items">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has b</div>
+        <div class="items">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
+        <div class="items">Lorem Ipsum is simply dummy text of the printing</div>
+        <div class="items">Lorem Ipsum is simply dummy</div>
+    </div>
+    
+</body>
+</html>
