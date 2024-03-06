@@ -146,7 +146,7 @@ footer p{
 
 /* news-contents의 메인기사와 사이드바의 크기 설정 */
 article{
-    order:2;        /* display:flex에서 동작하는 속성, 배치 순서*/
+    order:2;  /* display:flex에서만 동작하는 속성, 배치 순서*/
     width:60%;
 }
 aside{
@@ -155,6 +155,8 @@ aside{
 }
 .ad{
     order:1;
+    width: auto;
+    
 }
 
 .post-info{
@@ -203,12 +205,12 @@ article p{
     margin-bottom:1rem;
 }
 
-/* 사이드바
---------------------------- */
+/* 사이드바 */
+
 .sub-title{
     font-size: 1.375rem;
     padding: 0 8px 8px;
-    border-bottom: 2px #0bd solid;      /* 아래에 선을 설정*/
+    border-bottom: 2px #0bd solid;
     font-weight: normal;
 }
 
@@ -217,91 +219,96 @@ aside p{
 }
 
 .sub-menu{
-    margin-bottom:60px;
+    margin-bottom: 60px;
     list-style: none;
 }
+
 .sub-menu li{
     border-bottom: 1px #ddd solid;
 }
 .sub-menu a{
-    color:#432;
-    padding:10px;
-    display:block;      /* 링크로 클릭할 수 있는 범위를 넓혀줌*/
+    color: #432;
+    padding: 10px;
+    display: block;     /* 링크로 클릭할 수 있는 범위를 넓혀줌*/
 }
+
 .sub-menu a:hover{
-    color:#0bd;
+    color: #0bd;
 }
 
+/* 0~600px사이의 화면일 때 적용 */
+@media(max-width:600px){
 
-
-/* 0~600px사의의 화면일 때 적용 */
-@media (max-width: 600px){
-
-    /*1) 모바일 화면에서 문자크기와 여백 조정*/
+    /*1) 모바일 화면에서 문자크기와 여백 조정 */
     .page-title{
-        font-size:2.5rem;
+        font-size: 2.5rem;
+        
     }
 
-    /*2) 헤더의 로고와 nav메뉴를 수직으로 정렬*/
+    /*  헤더의 로고와 nav메뉴를 수직으로 정렬*/
     .page-header{
-        flex-direction:column;
-        align-items:center;
+        flex-direction: column;
+        align-items: center;
     }
-
-    /*1) 모바일 화면에서 문자크기와 여백 조정*/
-    /* HEADER */
+    /*1) header */
     .main-nav{
         font-size: 1rem;
-        margin-top:10px;
-    }
-    .main-nav li{
-        margin: 0 20px;
+        margin-top: 0 20px;
     }
 
-    /* HOME */
+
+    .home-nav li{
+        margin: 0 20px;
+    }
+    
+    /* home */
     .home-content{
         margin-top: 20%;
     }
 
-    /* 3) 메인 영역의 article과 aside를 수평->수직으로 정렬 변경 */
-    /* NEW */
-    .news-contents{
-        flex-direction: column;
-    }
+    /* 3)메인 영역의 article과 aside를 수평-> 수직으로 정렬 변경 */
+}
 
-    article,
-    aside{
-        width:100%;
-    }
+.news-contents{
+    flex-direction: column;
+}
 
-    /* 4) article과 aside의 문자 크기와 여백 조정 */
-    #news .page-title{
-        margin-top: 30px;
-    }
-    aside{
-        margin-top: 60px;
-    }
-    .post-info{
-        margin-bottom: 30px;
-    }
-    .post-date{
-        width:70px;
-        height:70px;
-        font-size:1rem;
-    }
-    .post-date span{
-        font-size: 0.875rem;
-        padding-top: 2px;
-    }
-    .post-title{
-        font-size: 1.375rem;
-    }
-    .post-cat{
-        font-size: 0.875rem;
-        margin-top: 10px;
-    }
-    .post-title,
-    .post-cat{
-        margin-left: 80px;
-    }
+article,
+aside{
+    width: 100%;
+
+    
+}
+
+/* 4)article과 aside의 문자 크기와 여백 조정 */
+
+#news .page-title{
+    margin-top: 30px;
+}
+aside{
+    margin-top: 60px;
+}
+.post-info{
+    margin-bottom: 30px;
+}
+.post-date{
+    width: 70px;
+    height: 70px;
+    font-size: 1rem;
+}
+.post-date span{
+    font-size: 0.875rem;
+    padding-top: 2px;
+}
+.post-title{
+    font-size: 1.375rem;
+}
+
+.post-cat{
+    font-size: 0.875rem;
+    margin-top: 10px;
+}
+.post-title,
+.post-cat{
+    margin-left: 80px;
 }
