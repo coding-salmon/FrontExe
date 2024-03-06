@@ -46,16 +46,77 @@
             
 
         }
+
+        .animation span{
+            position: relative;
+            font-size: 10em;
+            font-weight: 600;
+            color: wheat;
+        }
+
+        .animation .two_text{
+            color: wheat;
+        }
+
+        .two_text:before{
+            content: "";
+            position: absolute;
+            top:0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #000;
+            border-left: 2px solid white;
+            animation: animate 3s steps(6) infinite;
+        }
+
+        @keyframes animate{
+            40%, 60%{
+                left: calc(100% + 1px);
+
+            }
+            100%{
+                left: 0%;
+            }
+        }
+        .main{
+            height: 600px;
+        }
+        .before{
+            display: none;
+        }
+
+        span:hover+.before{
+            display: block;
+            text-align: center;
+            width: 500px;
+        }
     </style>
 </head>
 <body>
     <div class="intro">
         <h1>Introduce</h1>
+        </div>
+
+        <div class="main">
+            <div class="animation">
+                <br>
+                <br>
+
+                <span class="one_text">Hello,</span>
+                <span class="two_text">World!</span>
+            </div>
+        </div>
+
+        
+        
         <table>
+
+            
             
             <tr>
                 <th>이름</th>
-                <td>이덕현</td>
+                <td><span>이덕현</span><img class="before" src="../자기소개/images/before.jpg"></td>
             </tr>    
             <tr>
                 <th>생년월일</th>
