@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+
+
+            let num = prompt('숫자입력', 0);
+
+            for (let i = 0; i < num; i++) {
+                // 각 행마다 (num - i - 1)개의 공백을 출력합니다.
+                for (let j = 0; j < num - i - 1; j++) {
+                    document.write("&nbsp;");
+                }
+                // 별을 출력합니다.
+                for (let k = 0; k < 2 * i + 1; k++) {
+                    document.write("*");
+                }
+                // 행이 바뀔 때마다 줄 바꿈 태그를 추가합니다.
+                document.write("<br>");
+
+                
+                }
+
+                for(let i=num -2;i>=0;i--){
+                    for(let j=0;j<num-i-1;j++){
+                        document.write("&nbsp;");
+                    }
+                    for(let k=0; k<2*i+1;k++){
+                        document.write("*");
+                    }
+                    document.write("<br>")
+                }
+      
+        </script>
+    </head>
+    <body></body>
+</html>
