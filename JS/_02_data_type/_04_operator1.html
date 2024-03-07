@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //사칙연산
+
+        let result = 0;
+        result = 10 + 20;
+        document.write(result + "<br>");
+        result = 10 - 20;
+        document.write(result + "<br>");
+        result = 10 * 20;
+        document.write(result + "<br>");
+        result = 10 / 20;
+        document.write(result + "<br>");
+        result = 10 % 20;
+        document.write(result + "<br>");
+
+        //증감연산
+
+        let val = 10;
+        document.write(++val + "<br>");
+        document.write(val++ + "<br>");
+        document.write(val + "<br>");
+
+        //비교연산
+
+        let val1 = 20;
+        document.write((val > val1) +"<br>");
+
+        //비교연산
+        let isResult = 10 == 10;
+        document.write(isResult + "<br>");
+        isResult = 10 == '10';
+        document.write(isResult +"<br>"); //자동형변환 후 값 비교
+        isResult = 10 === '10';
+        document.write(isResult + "<br>") //자료형까지 일치하는가?
+
+        //비교연산(C언어의 영향)
+        // 0이 false로 도 사용되고 0은 비어있다로 표현되기도해서 자바스크립트에서 허용된다.
+        //그래서 == 보다 ===을 많이 쓴다 
+        isResult = false == '0';
+        document.write(isResult + "<br>");
+        isResult = false == 0;
+        document.write(isResult + "<br>");
+        isResult = "" == [];
+        document.write(isResult + "<br>");
+        isResult = 0 == [];
+        document.write(isResult + "<br>");
+
+        //논리연산자
+
+        document.write((true && true) +"<br>");
+        document.write((false && true) +"<br>");
+        document.write((true || false) +"<br>");
+        document.write(!false + "<br>");
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
