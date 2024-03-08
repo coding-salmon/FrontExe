@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 600px;
+            height: 600px;
+            border: 4px solid black;
+            margin: 50px;
+            font-size: 100px;
+            text-align: center;
+            line-height: 200px;
+            vertical-align: middle;
+        }
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            let $container = document.querySelector('#container');
+            let text =' ';
+            
+            setInterval(function(){
+                $container.textContent = '안녕하세요';
+                
+            },3000)
+
+            setInterval(function(){
+                $container.textContent = '환영합니다.';
+                
+            },6000)
+
+            setInterval(function(){
+                $container.textContent = '반갑습니다';
+                
+            },9000)
+
+
+        });
+
+
+    </script>
+</head>
+<body>
+    <div id ="container"></div>
+
+    
+<!-- 
+    상자를 600px로 넓힌 후에 
+    3초후에 '안녕하세요. 환영합니다.'를 
+    상자에 출력하세요. 
+-->
+
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        
+        
+        #nums{
+            width: 600px;
+            height: 600px;
+            
+            border: 4px solid black;
+            margin: 0px;
+            font-size: 300px;
+            text-align: center;
+            line-height: 200px;
+            vertical-align: middle;
+
+        }
+        
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            let $nums = document.querySelector('#nums');
+            let count = 0;
+            let time = 100;
+
+           
+            setInterval(()=>{
+                $nums.textContent = ++count;
+            },time);
+
+            const button = document.getElementById('stop');
+            button.addEventListener('click', function(){
+                time = 0;
+            })
+        });
+        
+
+        
+    </script>
+    
+</head>
+<body>
+    <div id="nums"></div>
+    
+    <button id="stop" onclick="stop()">멈춤</button>
+    
+</div>
+</body>
+</html>

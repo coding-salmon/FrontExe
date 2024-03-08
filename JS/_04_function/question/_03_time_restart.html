@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btnStart{
+            width: 140px;
+            height: 100px;
+            margin: 50px;
+            font-size: 50px;
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+            let $output = document.querySelector('#output');
+            let $button = document.querySelector('#btnStart');
+            let count = 0;  //증가 숫자
+            let timerID = null; //타이머 핸들
+            let isStart = false; // 시작/멈춤 여부
+            const INTERVAL = 100; //타이머 주기
+            
+            $button.addEventListener('click', () =>{
+                if(isStart){
+                    clearInterval(timerID);
+                    timerID = null;
+                    $button.textContent ='시작';
+                }else{
+                    startTimer();
+                    $button.textContent ='멈춤';
+                }
+                isStart = !isStart;
+            });
+        })
+
+    </script>
+</head>
+<body>
+    <button id="btnStart">시작</button>
+    
+</body>
+</html>
