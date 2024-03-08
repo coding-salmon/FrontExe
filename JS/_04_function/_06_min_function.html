@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        //배열을 입력받아서 최소값을 리턴하는 함수
+        function min(array){
+            let min = array[0];
+            for(let i=1;i<array.length;i++){
+                if(array[i]<min)
+                min = array[i];
+                
+            }
+            return min;
+
+        }
+
+        //배열을 입력받아서 최대값을 리턴하는 함수
+        function max(array){
+            let max = array[0];
+            for(let i=1;i<array.length;i++){
+                if(array[i]>min)
+                max = array[i];
+                
+            }
+            return max;
+
+        }
+
+
+        const testArr=[52,273,99,1,28,3];
+        console.log(`최소값 =${min(testArr)}`);
+        console.log(`최대값 =${max(testArr)}`);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

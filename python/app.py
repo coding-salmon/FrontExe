@@ -1,2 +1,3 @@
-print(5<4)
-#주석처리하는 방법
+중고차 = ['K5', 'white', 5000]
+중고차2 = {'brand':'BMW',  'model':'520D'}
+print(중고차2['brand'])
