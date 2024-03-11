@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+    <script>
+        var n = '홍길동'; //전역변수
+
+        function test(){
+            //우선 순위는 가까운 지역변수가 
+            var n='임꺽정';
+            console.log(n); // 지역변수
+        }
+
+        test();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
