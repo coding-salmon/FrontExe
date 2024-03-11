@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Climber Tycoon - 클라이머 키우기</title>
+        <link rel="stylesheet" href="../클라이머키우기/CSS/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin="crossorigin">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap"
+            rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1>클라이머 키우기</h1>
+            <div class="menu">
+                <button onclick="startGame()">게임시작</button>
+                <button onclick="showInstructions()">게임설명</button>
+                <button onclick="shareGame()">공유하기</button>
+                <button onclick="exitGame()">끝내기</button>
+            </div>
+        </div>
+
+        <!-- 모달 창 -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p>클라이머 키우기는<br>바쁜현대사회를 살아가는 당토(당근에미친토끼) 고분군투 생존기입니다.
+                <br>다양한 위험으로부터 살아남아 최고의 클라이머에 도전하십시오!</p>
+            </div>
+        </div>
+
+        <script src="../클라이머키우기/Js/script.js"></script>
+
+    </body>
+</html>
