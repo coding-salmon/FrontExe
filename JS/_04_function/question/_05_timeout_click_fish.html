@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            #panel {
+                width: 600px;
+                height: 300px;
+                border: 1px solid #999;
+                position: relative;
+                
+            }
+
+         
+
+            #fish {
+                
+                position: absolute;
+                left: 50px;
+                top: 120px;
+                transform: translate(150%, 0%);
+            }
+
+            #clickCount {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+        }
+
+        #timer {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="panel">
+        <img src="../../../images2/fish1.png" id="fish" alt="Fish">
+        <div id="clickCount">Clicks: 0</div>
+        <div id="timer">Time left: 5s</div>
+    </div>
+
+    <script>
+        let clickCount = 0;
+        const fish = document.getElementById('fish');
+        const countDisplay = document.getElementById('clickCount');
+        const timerDisplay = document.getElementById('timer');
+        let timeLeft = 5; // 5초 타이머
+
+        function updateClickCount() {
+            if (timeLeft > 0) {
+                clickCount++;
+                countDisplay.textContent = `Clicks: ${clickCount}`;
+            }
+        }
+
+        fish.addEventListener('click', updateClickCount);
+
+        const countdown = setInterval(function() {
+            timeLeft--;
+            timerDisplay.textContent = `남은 시간: ${timeLeft}s`;
+
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                fish.removeEventListener('click', updateClickCount);
+                timerDisplay.textContent = "남은 시간" ;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

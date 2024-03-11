@@ -38,44 +38,45 @@
 
             document.addEventListener('DOMContentLoaded', () => {
                 let $fish = document.querySelector('#fish');
-                let $button = document.querySelector('#btnStart');
+                let $panel = document.querySelector('#panel');
+                let $buttonStart = document.querySelector('#btnStart');
+                let $buttonStop = document.querySelector('#btnStop');
                 const MOVE_VAL = 50;
                 let step = MOVE_VAL;
-                const MAX_X = 430;
-                const MIN_X = 50;
-                let isStart = false;
+                const MAX_X = 500 - $fish.offsetWidth;
+                const MIN_X = 0;
+                let isAnimating = false;
+                let timerID;
+                // 이미지가 로드된 후 애니메이션을 시작하도록 함
+            $fish.onload = () => {
+                $buttonStart.addEventListener('click', startAnimation);
+                $buttonStop.addEventListener('click', stopAnimation);
+            };
 
-                const INTERVAL = 100;
+            function startAnimation() {
+    if (!isAnimating) {
+        timerID = setInterval(() => {
+            let currentPosition = $fish.offsetLeft + step;
 
-                $button.addEventListener('click', () => {
-
-                    timerID = setInterval(() => {
-                       
-
-                        let x = $fish
-                            .getBoundingClientRect()
-                            .left + step;
-
-                        if (x >= MAX_X) {
-                            x = MAX_X;
+            if (currentPosition >= MAX_X) {
                             $fish.setAttribute('src', '../../../images2/fish2.png');
                             step = -MOVE_VAL;
-                        } else if (x < MIN_X) {
-                            x = MIN_X;
+                        } else if (currentPosition <= MIN_X) {
                             $fish.setAttribute('src', '../../../images2/fish1.png');
                             step = MOVE_VAL;
-
-                            $fish.style.left = x + 'px';
-
                         }
 
-                    })
+                        $fish.style.left = ($fish.offsetLeft + step) + 'px';
+                    }, 100);
+                    isAnimating = true;
+                }
+            }
 
-                    }, INTERVAL);
-
-               
-
-            })
+            function stopAnimation() {
+                clearInterval(timerID);
+                isAnimating = false;
+            }
+        });
         </script>
     </head>
     <body>
