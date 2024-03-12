@@ -41,3 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }, false);
     bgm.play();
 });
+
+function startGame(){
+    window.location.href="Climber-Tycoon.html";
+}
