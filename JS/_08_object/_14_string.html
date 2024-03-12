@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        
+        //개행문자, \t, \n과 같은 앞뒤 공백 문자 제거
+        const stringA=`\n메시지를 입력했는데 줄바꿈이 들어갔다.`;
+        const stringB = ` 앞과 뒤에 공백이 들어갔다 `;
+        console.log(stringA.length)
+        console.log(stringB.length)
+        console.log(stringA.trim().length)
+        console.log(stringB.trim().length)
+
+        // 문자열 자르기 : split()
+        let input = `
+        일자,달러,엔,유로
+        02,1141.8,1077.45,1255,37
+        02,1148.8,1111.36,1274,37
+        02,1141.8,1077.45,1255,37
+        02,1143.8,1001.11,1255,37
+        02,1141.8,1097.27,1255,37
+        
+        `;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
