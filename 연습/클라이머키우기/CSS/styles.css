@@ -109,6 +109,9 @@ body{
     background-color: rgba(0,0,0,0.5);
     border-radius: 20px;
 }
+.exitGameModal{
+    display: none;
+}
 
 .modal-content{
     background-color: white;

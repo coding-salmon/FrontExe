@@ -29,6 +29,19 @@ function exitGame(){
     window.close();
 }
 
+// 모달창 열기
+function exitClimbGame(){
+    document.getElementById("exitGameModal").style.display='block';
+}
+//모달창 닫기
+function closeClimbGameModal(){
+    document.getElementById("exitGameModal").style.display ='none';
+}
+
+function exitConfirm(){
+    window.close()
+}
+
 function insta(){
     window.location.href="https://www.instagram.com/0._.329";
 }

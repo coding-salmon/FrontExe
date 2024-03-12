@@ -25,16 +25,16 @@
         <!-- 게임메뉴버튼 -->
         <div id="gameButtons">
             <button onclick="startClimbing()">클라이밍</button>
-            <button onclick="exitGame()">끝내기</button>
+            <button onclick="exitClimbGame()">끝내기</button>
         </div>
 
         <!-- 모달창 추가 -->
         <div id="exitGameModal" class="exitGameModal">
             <div class="extiGameModal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
+                <span class="close" onclick="closeClimbGameModal()">&times;</span>
                 <p>정말 종료하시겠습니까?</p>
                 <button onclick="exitConfirm()">예</button>
-                <button onclick="closeModal()">아니오</button>
+                <button onclick="closeClimbGameModal()">아니오</button>
             </div>
         </div>
 

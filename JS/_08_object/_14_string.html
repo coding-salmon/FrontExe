@@ -28,19 +28,38 @@
         input = input.trim(); //양쪽 공백문자 제거
         input = input.split('\n');
         console.log(input);
-        input = input.forEach(function(line){
-           let temp = [];
-           line.forEach(function(elem){
-            elem = elem.trim();
-            temp.push(elem);
-           });
-           newInput.push(temp)
-        });
-        console.log(newInput);
+
+        input = input.map((line)=> line.split(','))
+
+        //map을 사용해서 각 배열 요소의 공백 문자 제거
+
+        input = input.map(function(line){
+            line=line.map(function(elem){
+                return elem.trim();
+            })
+
+            return line;
+        })
+
+        console.log(input);
 
 
-        const jsonStr = JSON.stringify(newInput);
-        console.log(jsonStr)
+        //forEach를 사용해서 각 배열 요소의 공백 문자 제거
+
+        // input = input.forEach(function(line){
+
+        //    let temp = [];
+        //    line.forEach(function(elem){
+        //     elem = elem.trim();
+        //     temp.push(elem);
+        //    });
+        //    newInput.push(temp)
+        // });
+        // console.log(newInput);
+
+
+        // const jsonStr = JSON.stringify(newInput);
+        // console.log(jsonStr)
 
         
     </script>
