@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .banner {
+            width: 400px;
+            height: 200px;
+            top: 10px;
+            left: 100px;
+            position: absolute;
+            border: 3px solid red;
+            box-shadow: 10px 10px #ccc;
+            display: none; /* 배너들을 초기에 숨김 */
+        }
+    </style>
+</head>
+<body>
+    <img src="../../../images2/logo_01.jpg" class="banner" id="banner1">
+    <img src="../../../images2/logo_02.jpg" class="banner" id="banner2">
+    <img src="../../../images2/logo_03.jpg" class="banner" id="banner3">
+    <img src="../../../images2/logo_04.jpg" class="banner" id="banner4">
+    <img src="../../../images2/logo_05.jpg" class="banner" id="banner5">
+    <img src="../../../images2/logo_06.jpg" class="banner" id="banner6">
+    <img src="../../../images2/logo_07.jpg" class="banner" id="banner7">
+    <img src="../../../images2/logo_08.jpg" class="banner" id="banner8">
+
+    <script>
+        // 배너 이미지들을 배열로 가져오기
+        const banners = document.querySelectorAll('.banner');
+        let currentIndex = 0;
+        let intervalId = null;
+        let intervalDuration = 1000; // 초기 전환 속도
+
+        // 현재 배너 보이기
+        function showBanner(index) {
+            // 모든 배너 숨기기
+            banners.forEach(banner => {
+                banner.style.display = 'none';
+            });
+            // 현재 배너만 보이기
+            banners[index].style.display = 'block';
+        }
+
+        // 1초마다 배너 전환하기
+        function startBannerRotation() {
+            intervalId = setInterval(function() {
+                // 다음 배너 인덱스 계산
+                currentIndex = (currentIndex + 1) % banners.length;
+                // 현재 배너 보이기
+                showBanner(currentIndex);
+            }, intervalDuration);
+        }
+
+        // 방향키 이벤트 처리
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowUp') {
+                // 위쪽 화살표 키를 누르면 전환 속도 증가
+                clearInterval(intervalId); // 기존 타이머 중지
+                intervalDuration = Math.max(intervalDuration - 100, 100); // 최소 속도는 100ms
+                startBannerRotation(); // 새로운 속도로 타이머 시작
+            } else if (event.key === 'ArrowDown') {
+                // 아래쪽 화살표 키를 누르면 전환 속도 감소
+                clearInterval(intervalId); // 기존 타이머 중지
+                intervalDuration += 100; // 속도 증가
+                startBannerRotation(); // 새로운 속도로 타이머 시작
+            }
+        });
+
+        // 초기에 첫 번째 배너 보이기 및 타이머 시작
+        showBanner(currentIndex);
+        startBannerRotation();
+    </script>
+</body>
+</html>
