@@ -32,3 +32,12 @@ function exitGame(){
 function insta(){
     window.location.href="https://www.instagram.com/0._.329";
 }
+
+document.addEventListener("DOMContentLoaded", function(){
+    const bgm = document.getElementById('bgm');
+    bgm.addEventListener('ended',function(){
+        this.currentTime=0;
+        this.play();
+    }, false);
+    bgm.play();
+});

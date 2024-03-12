@@ -23,8 +23,26 @@
         02,1141.8,1077.45,1255,37
         02,1143.8,1001.11,1255,37
         02,1141.8,1097.27,1255,37
-        
         `;
+
+        input = input.trim(); //양쪽 공백문자 제거
+        input = input.split('\n');
+        console.log(input);
+        input = input.forEach(function(line){
+           let temp = [];
+           line.forEach(function(elem){
+            elem = elem.trim();
+            temp.push(elem);
+           });
+           newInput.push(temp)
+        });
+        console.log(newInput);
+
+
+        const jsonStr = JSON.stringify(newInput);
+        console.log(jsonStr)
+
+        
     </script>
 </head>
 <body>
