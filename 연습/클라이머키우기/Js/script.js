@@ -76,6 +76,38 @@ function closeGameModal(){
     document.getElementById("climbGameModal").style.display='none';
 }
 
+let isPlaying =false;//음악 재생 상태 추적 변수
+
+// 제목에 마우스 오버시
+document.getElementById('gameTitle').addEventListener('mouseover', function(){
+    if(!isPlaying){
+        //음악이 재생되지 않고 있으면 재생버튼 보여주기
+        document.getElementById('playButton').style.display='inline';
+        document.getElementById('playingButton').style.display='none';
+    }else{
+        //음악이 재생 중이면 재생 중 이미지 보여주기
+        document.getElementById('playButton').style.display='none';
+        document.getElementById('playingButton').style.display='inline';
+    }
+});
+
+//재생 버튼 클릭 시 음악 재생
+document.getElementById('playButton').addEventListener('click',function(){
+    document.getElementById('bgm').play();
+    isPlaying=true; // 재생 상태를 true로 변경
+    this.style.display='none'; //재생 버튼 숨기기
+    document.getElementById('playingButton').style.display='inline';//재생 중 이미지보여주기
+});
+
+//재생 중 이미지 클릭 시 음악 정지
+document.getElementById('playingButton').addEventListener('click', function(){
+    document.getElementById('bgm').pause();
+    isPlaying = false; //재생 상태를 false로 변경
+    this.style.display='none'; //재생 중 이미지 숨기기
+    document.getElementById('playButton').style.display='inline'; // 재생 버튼 보여주기
+});
+
+
 //게임 오버 횟수를 저장할 변수 선언
 let gameOverCount =0;
 
