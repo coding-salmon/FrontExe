@@ -80,7 +80,7 @@ body{
     
 }
 
-.menu{
+.menu {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -197,6 +197,15 @@ ul{
     list-style:none;
     
 }
+/* 타이틀 BGM 설정부분 */
+
+#gameTitle{
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    cursor:pointer;
+}
+
 
 @media (max-width: 768px){
     body{
