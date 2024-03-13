@@ -50,16 +50,6 @@ function insta(){
     window.location.href="https://www.instagram.com/0._.329";
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-    const bgm = document.getElementById('bgm');
-    bgm.play().then(()=>{
-        //음소거를 해제하고 재생합니다.
-        bgm.muted =false;
-    }).catch((error) =>{
-        //오디오 재생에 실한 경우 처리할 내용
-        console.error('오디오 재생에 실패했습니다:', error);
-    }); 
-});
 
 
 function startGame(){
@@ -76,48 +66,76 @@ function closeGameModal(){
     document.getElementById("climbGameModal").style.display='none';
 }
 
-
+// bmg설정하기
 document.addEventListener("DOMContentLoaded",function(){
     const bgm = document.getElementById("bgm")
     let isPlaying =false;//음악 재생 상태 추적 변수
 
     const gameTitle = document.getElementById("gameTitle");
+    if(gameTitle){
+    
     const originalTitle = gameTitle.textContent; //원래 게임 타이틀
 
-    gameTitle.addEventListener.addEventListener('mouseover', function(){
+    gameTitle.addEventListener('mouseover', function(){
         //제목에 마우스 오버시 타이틀 변경
-        this.textContent = "BGM: Play";
+        if(!isPlaying){
+            this.textContent ="BGM: Play";
+        }else{
+            this.textContent = "BGM: Stop";
+        }
+        
     });
     
     gameTitle.addEventListener("mouseout",function(){
-        //마우스 아웃시 원래 타이틀로 복원
+        //마우스 아웃시, 음아기 재생 중이 아닐 경우에만 원래 타이틀로 복원
         if (!isPlaying){
             this.textContent = originalTitle;
         }
+        //음악 재생 중일 때 마우스 아웃해도 타이틀 변경을 유지하지 않음
     });
 
     gameTitle.addEventListener("click",function(){
         //타이틀 클릭 시 음악 재생 / 정지 토글
         if(!isPlaying){
             bgm.play();
-            this.textContent
+            this.textContent = "BGM: Stop";
+            isPlaying=true;
+        }else{
+            bgm.pause();
+            this.textContent="BGM: Play";
+            isPlaying=false;
         }
-    })
+    });
+}
+});
 
 
 
 
 
-//게임 오버 횟수를 저장할 변수 선언
-
-let gameOverCount =0;
+ //게임 오버 횟수를 저장할 변수 선언
+ let gameOverCount =0;
+ let score=0;
 
 //클라이밍 모달창에서 "오늘은 컨디션이 좀 ... 쉰다!를 선택한 경우"
 function noClimb(){
-    if(gameOverCount <10) {
-        //초기 확률은 100%에서 시작하여 10%씩 감소합니다.
-        let probability =1 -(gameOverCount*0.1);
     
+
+    let probability;
+    //초기 확률 설정 및 감소 로직
+
+    
+    if(gameOverCount ===0) {
+       probability=1; //100%
+    }else if(gameOverCount ===1){
+       probability=0.5; //50% 
+    }else if(gameOverCount ===2){
+       probability=0.25; //25%
+    }else if(gameOverCount ===3){
+        probability=0.12; //12%
+    }else{
+        probability=0.01; //그 이후는 1%로 고정
+    }
 
     //0부터 1사이의 무작위한 값 생성
     const randomNumber = Math.random();
@@ -125,45 +143,17 @@ function noClimb(){
     //현재 확률로 게임 오버 또는 모달창 닫기
     if(randomNumber < probability){
         //게임 오버 메시지와 점수 표시
-        alert("게임오버 - 클밍을 못가서 돌연사 \n 당신의 점수는 " + score+"입니다.");
+        
     
 
-    //점수 초기화
-    score = 0;
 
     //게임 오버 횟수 증가
     gameOverCount++;
 
-    //첫 화면으로 돌아가기
-    window.location.href = "game-over.html"; //게임 오버 페이지로 이동
+    //게임 오버 페이지로 이동
+    window.location.href="../클라이머키우기/game-over.html"; 
 }else{
     //클라이밍 모달창 닫기
     closeClimbGameModal();
-
 }
-}else{
-    //5% 확률로 게임 오버 또는 모달창 닫기
-
-    let randomNumber = Math.random();
-    if(randomNumber < 0.05){
-
-        //게임 오버 메시지와 점수 표시
-        alert("게임 오버 - 클라이밍을 너무 쉬었더니 돌연사  \n 당신의 점수는 "+score+
-        "입니다");
-
-        //점수 초기화
-        score = 0;
-
-        //게임 오버 횟수 증가
-        gameOverCount++;
-
-        //첫 화면으로 돌아가기
-        window.location.href="game-over.html"; //게임 오버 페이지 이동
-            
-    }else{
-            //클라이밍 모달창 닫기
-            closeClimbGameModal();
-        }
-
-    }
 }

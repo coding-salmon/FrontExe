@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        try{
+            const array = new Array(9999999999999999999999999999999999);
+        }catch(exceptinon){
+            console.log(exceptinon);
+            console.log('');
+            console.log(`예외 이름:${exceptinon.name}`);
+            console.log(`예외 메세지:${exceptinon.message}`);
+            console.log(`예외 메세지:${exceptinon.stack}`);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

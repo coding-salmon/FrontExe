@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+            //이 코드는 예외가 발생하면 프로그램이 멈추게 된다.
+            //_04_try_catch.html:9 Uncaught ReferenceError: willExcept is not defined
+            // at _04_try_catch.html:9:13
+            willExcept.happy();
+
+            //try 영역에서 예외가 발생해도, catch에서 대응하므로 프로그램이 계속 동작하게 된다.
+        // try{
+        //     willExcept.happy();
+        // }catch(exception){
+        //     console.log('catch에서 예외 얻음')
+        // }
+
+        console.log('script 종료');
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
