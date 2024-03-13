@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        /*
+        [css스타일]
+        background-color => backgroundColor
+        text-align => textAlign
+        font-size=>fontSize
+
+        h1.style.backgrundColor = 'white';
+        h1.style.['backgroundColor'] = 'white';
+        
+        [css스타일 이름을 그대로 사용하는 법]
+        h1.style['background-color'] = 'white';*/
+        document.addEventListener('DOMContentLoaded', ()=>{
+            const divs =document.querySelectorAll('body>div');
+
+            divs.forEach((div,index)=>{
+                console.log(div, index);
+                const val = index*10;
+                div.style.height = '10px';
+                div.style.backgruoundColor =`rgba(${val},${val},${val})`
+            }
+            )
+
+        });
+    </script>
+</head>
+<body>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    <div></div><div></div><div></div><div></div><div></div>
+    
+</body>
+</html>

@@ -102,7 +102,7 @@ function noClimb(){
     gameOverCount++;
 
     //첫 화면으로 돌아가기
-    window.location.href = "../game-over.html"; //게임 오버 페이지로 이동
+    window.location.href = "game-over.html"; //게임 오버 페이지로 이동
 }else{
     //클라이밍 모달창 닫기
     closeClimbGameModal();
@@ -125,7 +125,7 @@ function noClimb(){
         gameOverCount++;
 
         //첫 화면으로 돌아가기
-        window.location.href="gameover.html"; //게임 오버 페이지 이동
+        window.location.href="game-over.html"; //게임 오버 페이지 이동
             
     }else{
             //클라이밍 모달창 닫기

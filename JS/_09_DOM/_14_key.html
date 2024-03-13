@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        
+        [키보드 이벤트]
+        keydown : 키가 눌릴 때 발생 (아시아권 문자 잘처리 못하는 경우가 있음)
+        keypress : 입력되었을때 (아시아권 문자 잘처리 못하는 경우가 있음)
+        keyup : 키를 뗄떼 발생(문자 입력시 이것을 권장)
+        */
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            const textarea = document.querySelector('textarea');
+            const h1 = document.querySelector('h1');
+
+            textarea.addEventListener('keyup',(event)=>{
+                const length = textarea.value.length;
+                h1.textContent=`글자 수 : ${length}`;
+            })
+        })
+    </script>
+</head>
+<body>
+
+    <h1></h1>
+    <textarea></textarea>
+
+    
+    
+</body>
+</html>
