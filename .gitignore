@@ -2,3 +2,7 @@
 *.avi
 *.mp3
 *.pdf
+/.metadata/
+/.recommender/
+.settings/
+*.class

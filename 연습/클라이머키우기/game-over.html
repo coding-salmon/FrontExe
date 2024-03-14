@@ -22,14 +22,23 @@
         <canvas id="gameCanvas" style="display: none;"></canvas>
        
         <div id ="gameScreen">
-            <!-- 케릭터 표시 -->
-            <div id="gamaCharacter">케릭터</div>
+            <div id="gameResult">
+                <p>게임결과</p>
+                <p>클라이밍을 안가서 게임오버!</p>
+                <p>클토(클라이밍에 미친토끼)는 오늘만을 기다려왔습니다.</p>
+                <p>다시하기를 눌러서 클라이밍을 하러가세요.</p>
+                <p>주의 : 이 게임은 게임오버!가 매우 자주 일어납니다.</p>
+                </div>
+          
+            
         </div>
+
+        
     
     
         <!-- 게임메뉴버튼 -->
         <div id="gameButtons">
-            <button onclick="reTry()">다시하기</button>
+            <button onclick="startGame()">다시하기</button>
             <button onclick="shareResult()">결과공유</button>
             <button onclick="exitClimbGame()">끝내기</button>
         </div>

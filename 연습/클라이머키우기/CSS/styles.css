@@ -219,15 +219,22 @@ ul{
 }
 
 
-@media (max-width: 768px){
-    body{
-        background-size: cover;
-    }
-}
 
 #gameCanvas{
     display: block;
     position: absolute;
     top: 0;
     left: 0;
+}
+
+#gameResult{
+    position: absolute;
+}
+
+
+
+@media (max-width: 768px){
+    body{
+        background-size: cover;
+    }
 }
