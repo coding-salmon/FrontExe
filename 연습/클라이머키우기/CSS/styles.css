@@ -72,6 +72,18 @@ body{
     background-size: cover;
 }
 
+#gameOverBody{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-image: url(../Images/game-over.jpeg);
+    background-size: cover;
+}
+
 #gameButtons{
     position: fixed;
     bottom: 200px;

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+    this.getInfo = function() {
+        let output = '';
+        output += '이름: '+this.name + '\n';
+        output += '키: '+this.height + '\n';
+        output += '몸무게: '+this.weight;
+        return output;
+    }
+
+    this.getResult = function() {
+        const minWeight = (this.height - 100)* 0.9 -5;
+        const maxWeight = (this.height - 100)* 0.9 +5;
+        if(this.weight >= minWeight && this.weight <= maxWeight)
+            return '정상 몸무게입니다.';
+        else if(this.weight < minWeight)
+            return '정상 몸무게보다 미달입니다.';
+        else
+            return '정상 몸무게보다 초과입니다.';    
+    }
+    //
+
+    const hong = new CheckWeight('홍길동', 174.5,88.3);
+    const iu = CheckWeight('아이유', 160.5, 50.2)
+
+    console.log(hong.getInfo());
+    console.log(hong.getResult());
+
+    //클래스로 객체 생성하기 
+    //다수의 객체를 생성할 수 있다.
+    // 상속 , 다형성, private, getter/setter 문법 구현
+    // 대규모 설계 framework 구현이 가능
+    class User{
+        constructor(name){
+            this.name = name;
+        }
+        sayHi(){
+            return this.name + ' 안녕하세요~';
+        }
+
+       
+    }
+    const cha = new User('차돌바위');
+    console.log(cha.sayHi());
+    const im = new User('임꺽정');
+    console.log(im.sayHi());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

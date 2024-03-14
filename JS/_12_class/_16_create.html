@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //객체를 만드는 방법
+        // 1)리터럴 방식
+        const car = {
+            color:'black',
+            price: 34000000,
+            info:function(){
+                console.log(this.color);
+                console.log(this.price);
+            }
+        }
+
+        car.info();
+
+        // 2) Object를 사용해서 객체 만들기
+        // 위와 동일하다.
+        const tv =new Object();
+        tv.color = 'white';
+        tv.price = 1000000;
+        tv.info = function(){
+            console.log('tv 색상: '+this.color);
+            console.log('tv 가격: '+this.price);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

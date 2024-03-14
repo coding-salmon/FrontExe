@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Student{
+            //생성자 함수
+            constructor(name, kor, math, eng, sci){
+                this.name = name;
+                this.kor = kor;
+                this.math = math;
+                this.eng = eng;
+                this.sci = sci;
+
+            }
+
+            toString(){ 
+                return `${this.name}\t${this.kor}\t${this.math}\t${this.eng}\t${this.sci}\n`;
+
+        }
+    }
+
+        const student = new Student();
+
+        const students = [
+            new Student(),
+            new Student(),
+            new Student(),
+            new Student()
+        ]
+
+        let output ='';
+        for(const s of students)
+        output += s;
+
+        console.log(output);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

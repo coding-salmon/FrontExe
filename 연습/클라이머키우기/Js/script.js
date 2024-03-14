@@ -157,3 +157,9 @@ function noClimb(){
     closeClimbGameModal();
 }
 }
+
+function captureGameScreen(){
+    //게임 화면을 캡처하여 캔버스에 그립니다.
+    const gameScreen = document.getElementById('gameScreen');
+    const canvas = document.getElementById('gameCanvas')
+}
