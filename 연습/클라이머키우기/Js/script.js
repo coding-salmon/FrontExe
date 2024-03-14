@@ -158,8 +158,21 @@ function noClimb(){
 }
 }
 
-function captureGameScreen(){
+function shareResult(){
     //게임 화면을 캡처하여 캔버스에 그립니다.
     const gameScreen = document.getElementById('gameScreen');
-    const canvas = document.getElementById('gameCanvas')
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = gameScreen.offsetWidth;
+    canvas.height = gameScreen.offsetHeight;
+    ctx.drawImage(gameScreen, 0, 0, canvas.width, canvas.height);
+
+    //캔버스를 이미지로 변환합니다.
+    const imageData = canvas.toDataURL('image/png');
+
+    //이미지를 전송하거나 다운로드할 수 있도록 설정합니다.
+    const link = document.createElement('a');
+    link.href = imageData;
+    link.download = 'game_result.png';
+    link.click();
 }

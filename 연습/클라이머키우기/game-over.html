@@ -14,19 +14,23 @@
             href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap"
             rel="stylesheet">
             <!-- 파비콘 추가 -->
-        <link rel="icon" href="../클라이머키우기/Images/climb.ico" type="image/x-icon">   
+        <link rel="icon" href="../클라이머키우기/Images/climb.ico" type="image/x-icon">
+           
     </head>
+    
     <body id="gameOverBody">
         <canvas id="gameCanvas" style="display: none;"></canvas>
+       
         <div id ="gameScreen">
             <!-- 케릭터 표시 -->
             <div id="gamaCharacter">케릭터</div>
         </div>
-
+    
+    
         <!-- 게임메뉴버튼 -->
         <div id="gameButtons">
-            <button onclick="startClimbing()">다시하기</button>
-            <button onclick="startClimbing()">결과공유</button>
+            <button onclick="reTry()">다시하기</button>
+            <button onclick="shareResult()">결과공유</button>
             <button onclick="exitClimbGame()">끝내기</button>
         </div>
 
@@ -56,4 +60,5 @@
         <script src="../클라이머키우기/Js/script.js"></script>
 
     </body>
+
 </html>

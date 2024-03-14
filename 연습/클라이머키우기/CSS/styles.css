@@ -80,8 +80,8 @@ body{
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-image: url(../Images/game-over.jpeg);
-    background-size: cover;
+    background-image: url(../Images/gameover-bg.jpg);
+    background-size: cover top;
 }
 
 #gameButtons{
@@ -225,3 +225,9 @@ ul{
     }
 }
 
+#gameCanvas{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
