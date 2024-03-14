@@ -29,8 +29,9 @@ public class SimpleWebSocketServer extends WebSocketServer {
 	}
 
 	@Override
-	public void onError(WebSocket arg0, Exception arg1) {
-		// TODO Auto-generated method stub
+	public void onError(WebSocket conn, Exception ex) {
+		System.out.println(ex.getMessage());
+		//ex.getStackTrace();
 		
 	}
 
