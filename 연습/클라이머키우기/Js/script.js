@@ -2,18 +2,18 @@
 
 function showInstructions(){
     
-    const modal =document.getElementById("modal");
+    let modal =document.getElementById("modal");
     modal.style.display="block";
 }
 
 // 모달 창 닫기 함수
-const closeModal = ()=>{
-    const modal =document.getElementById("modal");
+let closeModal = ()=>{
+    let modal =document.getElementById("modal");
     modal.style.display="none"
 }
 
 function  shareGame() {
-    const url = window.location.href;
+    let url = window.location.href;
 
     navigator.clipboard.writeText(url)
     .then(function(){
@@ -27,38 +27,62 @@ function  shareGame() {
 
 function exitGame(){
     //사용자에게 확인 메시지를 표시하고, 확인 시 현재 창을 닫음
-    const confirmation  =confirm("정말 게임을 종료하시겠습니까?");
+    let confirmation  =confirm("정말 게임을 종료하시겠습니까?");
     if(confirmation ){
     window.close();
     }
 }
 
-// 모달창 열기
+
+
+// 게임종료확인 모달창 열기
 function exitClimbGame(){
-    document.getElementById("exitGameModal").style.display='block';
+     document.getElementById("exitGameModal").style.display='block';
+     //사용자에게 확인 메시지를 표시하고, 확인 시 현재 창을 닫음
+    
+     window.close();
 }
+
 //모달창 닫기
 function closeClimbGameModal(){
-    document.getElementById("exitGameModal").style.display ='none';
+    document.getElementById("climbGameModal").style.display ='none';
 }
 
 function exitConfirm(){
-        window.close();
-}
+     
+    window.close();
+    }
+
 
 function insta(){
     window.location.href="https://www.instagram.com/0._.329";
 }
 
 
-
 function startGame(){
-    window.open("climber-Tycoon.html");
+    window.location.href=("climber-Tycoon.html");
+   
+    // 게임오버 횟수 초기화
+    localStorage.setItem(gameOverCount, '0');
+    console.log("게임 오버 횟수", gameOverCount);
+}
+
+
+function restartGame(){
+    window.location.href=("climber-Tycoon.html");
+     // 이전 게임에서의 확률을 콘솔에 출력 (확인을 위한 코드)
+    // console.log("이전 게임에서의 게임 오버 확률:", probability);
+    // 이전 게임에서의 게임 오버 횟수 불러오기
+    let gameOverCount = parseInt(localStorage.getItem("gameOverCount")) || 0;
+    console.log("게임 오버 횟수", gameOverCount);
 }
 
 //클라이밍 모달창 열기
 function startClimbing(){
     document.getElementById("climbGameModal").style.display='block';
+    
+
+   
 }
 
 //모달창 닫기
@@ -68,13 +92,13 @@ function closeGameModal(){
 
 // bmg설정하기
 document.addEventListener("DOMContentLoaded",function(){
-    const bgm = document.getElementById("bgm")
+    let bgm = document.getElementById("bgm")
     let isPlaying =false;//음악 재생 상태 추적 변수
 
-    const gameTitle = document.getElementById("gameTitle");
+    let gameTitle = document.getElementById("gameTitle");
     if(gameTitle){
     
-    const originalTitle = gameTitle.textContent; //원래 게임 타이틀
+    let originalTitle = gameTitle.textContent; //원래 게임 타이틀
 
     gameTitle.addEventListener('mouseover', function(){
         //제목에 마우스 오버시 타이틀 변경
@@ -124,6 +148,9 @@ function noClimb(){
     let probability;
     //초기 확률 설정 및 감소 로직
 
+     // 이전 게임에서의 게임 오버 횟수 불러오기
+    let gameOverCount = parseInt(localStorage.getItem("gameOverCount")) || 0;
+
     
     if(gameOverCount ===0) {
        probability=1; //100%
@@ -138,7 +165,7 @@ function noClimb(){
     }
 
     //0부터 1사이의 무작위한 값 생성
-    const randomNumber = Math.random();
+    let randomNumber = Math.random();
 
     //현재 확률로 게임 오버 또는 모달창 닫기
     if(randomNumber < probability){
@@ -150,6 +177,9 @@ function noClimb(){
     //게임 오버 횟수 증가
     gameOverCount++;
 
+    //게임 오버 횟수 로컬에 저장
+    localStorage.setItem("gameOverCount",gameOverCount);
+
     //게임 오버 페이지로 이동
     window.location.href="../클라이머키우기/game-over.html"; 
 }else{
@@ -158,21 +188,45 @@ function noClimb(){
 }
 }
 
+
+//게임오버 화면 공유
 function shareResult(){
-    //게임 화면을 캡처하여 캔버스에 그립니다.
-    const gameScreen = document.getElementById('gameScreen');
-    const canvas = document.getElementById('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = gameScreen.offsetWidth;
-    canvas.height = gameScreen.offsetHeight;
-    ctx.drawImage(gameScreen, 0, 0, canvas.width, canvas.height);
+    //html2canvas를 사용
+    html2canvas(document.getElementById("gameOverBody")).then(function(canvas){
+        //canvas를 이미지 url로 변환
+        let imgData = canvas.toDataURL('image/png');
 
-    //캔버스를 이미지로 변환합니다.
-    const imageData = canvas.toDataURL('image/png');
+        //이미지를 클립보드에 복사합니다.
+        copyImageToClipboard(imgData);
 
-    //이미지를 전송하거나 다운로드할 수 있도록 설정합니다.
-    const link = document.createElement('a');
-    link.href = imageData;
-    link.download = 'game_result.png';
-    link.click();
+        //사용자에게 이미지가 복사되었음을 알리는 메시지를 표시합니다.
+        alert("[Ctrl + V를 눌러 이미지로 공유하세요!]")
+    });
+  
 }
+
+
+
+//이미지를 클립보드에 복사하는 함수
+function copyImageToClipboard(imageData){
+    let canvas = document.createElement("canvas");
+    let cts = canvas.getContext("2d");
+    let img = new Image();
+    img.src = imageData;
+    canvas.width=img.width;
+    canvas.height=img.height;
+    ctx.drawImage(img,0,0);
+
+    //캔버스에 그려진 이미지를 Blob으로 변환합니다.
+    canvas.toBlob(function(blob){
+        //Blob을 클립보드  api를 통해 클립보드에 복사합니다.
+        navigator.clipboard.write([
+            new ClipboardItem({"image/png":blob})
+            ]).then(function(){
+                console.log('이미지가 클립보드에 복사 되었습니다.');
+            }, function(error){
+                console.error('클립보드에 이미지를 복사하는 중 오류가 발생했습니다.:',error);
+            });
+    }, 'image/png');
+    }
+
