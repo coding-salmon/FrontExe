@@ -37,21 +37,26 @@ function exitGame(){
 
 // 게임종료확인 모달창 열기
 function exitClimbGame(){
-     document.getElementById("exitGameModal").style.display='block';
-     //사용자에게 확인 메시지를 표시하고, 확인 시 현재 창을 닫음
+    document.getElementById("exitGameModal").style.display='block';
     
-     window.close();
 }
 
 //모달창 닫기
 function closeClimbGameModal(){
-    document.getElementById("climbGameModal").style.display ='none';
+   document.getElementById("exitGameModal").style.display="none";
+
+ 
 }
 
 function exitConfirm(){
-     
-    window.close();
+
+    window.open("index.html","_self");
     }
+    
+    
+function exitGameOver(){
+    window.close();
+}
 
 
 function insta(){
@@ -60,29 +65,29 @@ function insta(){
 
 
 function startGame(){
-    window.location.href=("climber-Tycoon.html");
-   
+    window.open("climber-Tycoon.html","_self");
+
     // 게임오버 횟수 초기화
-    localStorage.setItem(gameOverCount, '0');
+    localStorage.setItem('gameOverCount', '0');
     console.log("게임 오버 횟수", gameOverCount);
 }
 
 
 function restartGame(){
     window.location.href=("climber-Tycoon.html");
-     // 이전 게임에서의 확률을 콘솔에 출력 (확인을 위한 코드)
-    // console.log("이전 게임에서의 게임 오버 확률:", probability);
+
     // 이전 게임에서의 게임 오버 횟수 불러오기
     let gameOverCount = parseInt(localStorage.getItem("gameOverCount")) || 0;
     console.log("게임 오버 횟수", gameOverCount);
 }
+
 
 //클라이밍 모달창 열기
 function startClimbing(){
     document.getElementById("climbGameModal").style.display='block';
     
 
-   
+
 }
 
 //모달창 닫기
@@ -138,53 +143,81 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
  //게임 오버 횟수를 저장할 변수 선언
- let gameOverCount =0;
- let score=0;
+let gameOverCount =0;
+
+//초기 확률 설정
+let gameProbability;
+
+
+//게임오버 카운트를 화면에 업데이트하는 함수
+function updateGameOverDisplay(){
+
+ // 이전 게임에서의 게임 오버 횟수 불러오기
+ gameOverCount = parseInt(localStorage.getItem("gameOverCount")) || 0;
+
+    document.getElementById("gameOverDisplay").innerText=`Game Over: ${gameOverCount}`
+}
+// 매1초마다 게임오버카운트 함수 실행
+setInterval(updateGameOverDisplay, 1000);
+
 
 //클라이밍 모달창에서 "오늘은 컨디션이 좀 ... 쉰다!를 선택한 경우"
 function noClimb(){
-    
 
-    let probability;
-    //초기 확률 설정 및 감소 로직
 
      // 이전 게임에서의 게임 오버 횟수 불러오기
-    let gameOverCount = parseInt(localStorage.getItem("gameOverCount")) || 0;
+    gameOverCount = parseInt(localStorage.getItem("gameOverCount")) || 0;
 
-    
+    //확률 계산
     if(gameOverCount ===0) {
-       probability=1; //100%
+       gameProbability=1; //100%
     }else if(gameOverCount ===1){
-       probability=0.5; //50% 
+       gameProbability=0.5; //50% 
     }else if(gameOverCount ===2){
-       probability=0.25; //25%
+       gameProbability=0.25; //25%
     }else if(gameOverCount ===3){
-        probability=0.12; //12%
+        gameProbability=0.12; //12%
     }else{
-        probability=0.01; //그 이후는 1%로 고정
+        gameProbability=0.01; //그 이후는 1%로 고정
     }
 
     //0부터 1사이의 무작위한 값 생성
     let randomNumber = Math.random();
 
     //현재 확률로 게임 오버 또는 모달창 닫기
-    if(randomNumber < probability){
+    try{
+    if(randomNumber < gameProbability){
         //게임 오버 메시지와 점수 표시
         
-    
-
-
     //게임 오버 횟수 증가
     gameOverCount++;
 
     //게임 오버 횟수 로컬에 저장
     localStorage.setItem("gameOverCount",gameOverCount);
 
+
+//엔딩타입저장
+saveEndingContent("noClimbGameOver")
+
+
     //게임 오버 페이지로 이동
     window.location.href="../클라이머키우기/game-over.html"; 
-}else{
+
+    
+
+    
+    
+    
+
+}
+
+
+}finally{
     //클라이밍 모달창 닫기
-    closeClimbGameModal();
+    closeGameModal();
+
+    
+
 }
 }
 
@@ -230,3 +263,49 @@ function copyImageToClipboard(imageData){
     }, 'image/png');
     }
 
+
+const EndingType= {
+    noClimbGameOver: "noClimbGameOver"
+};
+
+// 엔딩내용 정의
+const endingMessages = {
+    [EndingType.noClimbGameOver]:`
+            <p>클라이밍장을 못가서 게임오버</p>
+            <p>클토(클라이밍에 미친토끼)는 오늘만을 기다려왔습니다.</p>
+            <p>이어하기를 눌러서 클라이밍을 하러가세요.</p>
+            <p1>주의 : 이 게임은 게임오버!가 상당히 자주 일어납니다.</p1>
+            <br></br>`
+};
+
+//엔딩 내용 로컬 스트리지에 저장하는 함수
+function saveEndingContent(endingType){
+    localStorage.setItem("endingContent", JSON.stringify({
+        type: endingType,
+        message: endingMessages[endingType]
+    }));
+}
+
+//저장된 엔딩 내용 불러오는 함수
+function loadEndingContent(){
+    const endingContent = JSON.parse(localStorage.getItem("endingContent"));
+    if(endingContent && endingContent.type && endingContent.message){
+        return endingContent;
+    }
+    return null;
+}
+
+//엔딩 내용 표시 함수
+function displayEndingContent(){
+    const endingContent = loadEndingContent();
+if(endingContent){
+    document.getElementById("endingContent").innerHTML = endingContent.message;
+    }else{
+        document.getElementById("endingContent").innerHTML = "error";
+    }
+}
+
+
+function newClimb() {
+    
+}

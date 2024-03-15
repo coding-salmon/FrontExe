@@ -17,6 +17,7 @@
         <link rel="icon" href="../클라이머키우기/Images/climb.ico" type="image/x-icon">   
     </head>
     <body id="gameBody">
+        <div id ="gameOverDisplay">Game over : 0</div>
         <div id ="gameScreen">
             <!-- 케릭터 표시 -->
             <div id="gamaCharacter">케릭터</div>
@@ -25,6 +26,7 @@
         <!-- 게임메뉴버튼 -->
         <div id="gameButtons">
             <button onclick="startClimbing()">클라이밍</button>
+            <button onclick="miniGame()">미니게임</button>
             <button onclick="exitClimbGame()">끝내기</button>
         </div>
 
@@ -44,9 +46,9 @@
                 <span class="close" onclick="closeGameModal()">&times;</span>
                 <p>오늘은 드디어 클라이밍 가는날! 어디로 갈까?!</p>
                 <ul>
-                    <li><button onclick="newClimb">원정!!! 새로 오픈한 곳으로!</button></li>
+                    <li><button onclick="newClimb()">원정!!! 꿀문제 깨러 가야지!</button></li>
                     <br>
-                    <li><button onclick="jonberClimb">홈짐!!! 존버문제 깨러 가야지!</button></li>
+                    <li><button onclick="jonberClimb()">홈짐!!! 존버문제 깨러 가야지!</button></li>
                     <br>
                     <li><button onclick="noClimb()">오늘은... 쉰다!</button></li>
                     <br>

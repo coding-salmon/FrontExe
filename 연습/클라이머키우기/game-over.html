@@ -22,17 +22,14 @@
     </head>
     
     <body id="gameOverBody">
+        <div id ="gameOverDisplay">Game over : 0</div>
         <canvas id="gameCanvas" style="display: none;"></canvas>
         <div id ="gameScreen">
             <div id="gameResult">
-                <h1>게임오버!</h1>
+                <h1>게임오버!!!</h1>
+                <div id="endingContent" class="ending">
                 
-                <p>클토(클라이밍에 미친토끼)는 오늘만을 기다려왔습니다.</p>
-                <p>다시하기를 눌러서 클라이밍을 하러가세요.</p>
-                <p1>주의 : 이 게임은 게임오버!가 상당히 자주 일어납니다.</p1>
-                <br>
-                <br>
-                
+            </div>
                 </div>
             
         </div>
@@ -42,7 +39,8 @@
     
         <!-- 게임메뉴버튼 -->
         <div id="gameButtons">
-            <button onclick="restartGame()">다시하기</button>
+            <button onclick="startGame()">새로하기</button>
+            <button onclick="restartGame()">이어하기</button>
             <button onclick="shareResult()">결과공유</button>
             <button onclick="exitClimbGame()">끝내기</button>
         </div>
@@ -52,7 +50,7 @@
             <div class="extiGameModal-content">
                 <span class="close" onclick="closeClimbGameModal()">&times;</span>
                 <p>정말 종료하시겠습니까?</p>
-                <button onclick="exitConfirm()">예</button>
+                <button onclick="exitGameOver()">예</button>
                 <button onclick="closeClimbGameModal()">아니오</button>
             </div>
         </div>
@@ -71,6 +69,10 @@
         <div></div>
 
         <script src="../클라이머키우기/Js/script.js"></script>
+        <script>
+            window.addEventListener("load",function(){
+                displayEndingContent();
+            })</script>
 
 
        
