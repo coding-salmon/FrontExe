@@ -307,5 +307,9 @@ if(endingContent){
 
 
 function newClimb() {
+    window.open("game-newClimb.html","_self");
+     // 이전 게임에서의 게임 오버 횟수 불러오기
+    let gameOverCount = parseInt(localStorage.getItem("gameOverCount")) || 0;
+    console.log("게임 오버 횟수", gameOverCount);
     
 }

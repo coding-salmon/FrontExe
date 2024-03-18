@@ -95,7 +95,7 @@ body{
     justify-content: center;
     text-align: center;
     background-image: url(../Images/gogogo-bg.jpeg);
-    background-size: contain top;
+    background-size: contain;
     
 }
 
@@ -296,7 +296,8 @@ p1{
     width: 55%;
     max-width: 600px;
     min-height: min-content;
-    top: 20%;
+    
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -308,11 +309,51 @@ p1{
     font-weight: bold;
 }
 
+#gameGoScreen h2{
+    margin: 20px 0;
+    color: #FF6F61;
+    font-weight: bold;
+    font-size: 2.5em;
+}
+
+#gameGoScreen button{
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #58b6a5;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 80%;
+    
+}
+
+#gameGoScreen button:hover{
+    background-color: #0056b3;
+}
 
 
 @media (max-width: 768px){
     body{
         background-size: cover;
     }
-    
+
+    #gameGoBody{
+       
+       background-size: cover;
+    }
+
+    #gameGoScreen h1{
+        font-size: 2em;
+    }
+
+    #gameGoScreen{
+    width: 70%;
+    }
+    #gameGoScreen h2{
+        font-size: 1.5em;
+        font-weight: bold;
+    }
 }
