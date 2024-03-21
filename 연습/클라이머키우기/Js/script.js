@@ -313,3 +313,16 @@ function newClimb() {
     console.log("게임 오버 횟수", gameOverCount);
     
 }
+
+function goHomeModal(){
+    document.getElementById("goHomeModal").style.display='block';
+
+}
+
+function closeGoHomeModal(){
+    document.getElementById("goHomeModal").style.display='none';
+}
+
+function goHome(){
+    window.open("climber-Tycoon.html","_self");
+}

@@ -297,7 +297,7 @@ p1{
     max-width: 600px;
     min-height: min-content;
     
-    top: 30%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -334,6 +334,18 @@ p1{
     background-color: #0056b3;
 }
 
+#gameOverDisplay{
+    position: fixed; /* 요소를 고정 위치로 설정합니다. */
+    top: 5%; /* 화면의 수직 중앙에 위치하도록 합니다. */
+    left: 50%; /* 화면의 수평 중앙에 위치하도록 합니다. */
+    transform: translate(-50%, -50%); /* 요소를 수평 및 수직으로 이동하여 정확한 중앙에 위치시킵니다. */
+    z-index: 9999; /* 다른 요소들 위에 위치하도록 설정합니다. */
+    background-color: rgba(255, 255, 255, 0.8); /* 배경색을 투명하게 설정합니다. */
+    padding: 10px; /* 내부 여백을 추가합니다. */
+    border-radius: 5px; /* 모서리를 둥글게 만듭니다. */
+    font-size: 2em;
+
+}
 
 @media (max-width: 768px){
     body{
