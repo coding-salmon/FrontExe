@@ -116,9 +116,9 @@ function create() {
 
 
         // 5초 후에 홀드가 아직 제거되지 않았다면 점수 감점
-        this.time.delayedCall(5000, () => { // 5초 대기
+        this.time.delayedCall(3000, () => { // 3초 대기
             if (hold.active) { // 홀드가 아직 화면에 존재한다면
-                score -= 50; // 예를 들어, 각 홀드마다 고정된 점수 감점
+                score -= baseScore; // 예를 들어, 각 홀드마다 고정된 점수 감점
                 score = Math.max(score, 0); // 점수가 음수가 되지 않도록 처리
                 scoreText.setText('Score: ' + score);
                 hold.destroy(); // 홀드 제거 (옵션: 필요에 따라 제거 여부 결정)
@@ -126,10 +126,10 @@ function create() {
         }, [], this);
 };
 
- // 게임 시작 시, 그리고 이후 1~5초마다 랜덤으로 홀드 생성
+ // 게임 시작 시, 그리고 이후 1~2초마다 랜덤으로 홀드 생성
  const scheduleNextHold = () => {
     createHold(); // 즉시 홀드 생성
-    let nextDelay = Phaser.Math.Between(1000, 5000); // 다음 홀드 생성까지의 시간 (1~5초)
+    let nextDelay = Phaser.Math.Between(1000, 2000); // 다음 홀드 생성까지의 시간 (1~3초)
     this.time.delayedCall(nextDelay, scheduleNextHold, [], this); // 다음 홀드 생성 예약
 };
 
