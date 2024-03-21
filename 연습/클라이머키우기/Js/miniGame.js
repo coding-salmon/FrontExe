@@ -32,6 +32,20 @@ function create() {
     // var breakSound = this.sound.add('break');
     var score = 0;
     var scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '20px', fill: '#ffffff' });
+    var timeLeft = 30; // 게임 시간(초)
+    var timeText = this.add.text(16, 36, 'Time: 30s', { fontSize: '20px', fill: '#ffffff' });
+
+     // 남은 시간을 업데이트하는 함수
+    var updateTimer = () => {
+        timeLeft--;
+        timeText.setText('Time: ' + timeLeft + 's');
+        if (timeLeft <= 0) {
+            gameOver(score);
+        }
+    };
+
+    // 초 단위로 타이머 업데이트
+    this.time.addEvent({ delay: 1000, callback: updateTimer, callbackScope: this, loop: true });
 
         // 30초 후 게임 오버
 gameOverTimer = this.time.delayedCall(30000, function () {
@@ -41,7 +55,7 @@ gameOverTimer = this.time.delayedCall(30000, function () {
     
 
     //게임 로직 시작
-    startGameLogic.call(this, score, scoreText, gameOverTimer);
+    startGameLogic.call(this, score, scoreText, gameOverTimer, timeLeft, timeText);
 
 }
 
@@ -83,15 +97,18 @@ function startGameLogic(score,scoreText, gameOverTimer) {
             scoreText.setText('Score: ' + score);
             hold.destroy(); // 홀드 제거
             
-            // 홀드 제거 성공 시 추가 시간 부여
-            gameOverTimer.delay += 1000; // 3초 추가
-            console.log("Hold broken! Extra 3 seconds added.");
-            
-            startGameLogic.call(this, score, scoreText, gameOverTimer); // 새로운 홀드 생성
+            // 홀드 제거 성공 시 추가 시간 1초 부여
+            if (gameOverTimer.getProgress() < 1) {
+                gameOverTimer.delay += 1000; // 1초 추가
+                timeLeft += 1; // 남은 시간 업데이트
+                timeText.setText('Time: ' + timeLeft + 's'); // 시간 텍스트 업데이트
+            }
+
+            startGameLogic.call(this, score, scoreText, gameOverTimer, timeLeft, timeText); // 새로운 홀드 생성
         }
     });
 }
-    });
+});
 }
 function gameOver(score) {
     alert('Game Over! Score: ' + score);
