@@ -56,7 +56,7 @@ body{
     transition: all 0.5s ease; /* 애니메이션 효과를 위한 transition 추가 */
 }
 
-#miniGame-Container, #miniGame-Container1 {
+#miniGame-Container, #miniGame-Container2 {
     display: none; /* 초기 상태: 숨김 */
    
     
@@ -76,6 +76,16 @@ body{
     width: 100vw; /* 뷰포트 너비의 100%를 사용 */
 
 }
+
+#gameControls {
+    text-align: center; /* 버튼을 중앙에 배치 */
+    margin-top: 20px; /* 게임 화면과의 여백 */
+}
+
+#gameControls button {
+    margin: 0 10px; /* 버튼 사이의 여백 */
+    padding: 10px 20px; /* 버튼 안쪽 여백 */
+}
 /* 
 /* 
 /* 소형 디바이스 (스마트폰) */
@@ -86,10 +96,10 @@ body{
         font-size: 14px;
     }
 
-    #miniGame-Container {
+    /* #miniGame-Container {
         width: 100%;
-        height: 400px; /* 모바일에서는 높이 조절 */
-    }
+        height: auto;} /* 모바일에서는 높이 조절 */
+    
     body{
         width: 100%;
         height: 100vh;

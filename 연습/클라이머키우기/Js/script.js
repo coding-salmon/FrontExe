@@ -326,3 +326,10 @@ function closeGoHomeModal(){
 function goHome(){
     window.open("climber-Tycoon.html","_self");
 }
+
+
+// 페이지 로드 시 효과 적용
+window.onload = function() {
+    var gameGoScreen = document.getElementById("gameGoScreen");
+    gameGoScreen.style.opacity = 1; // 요소를 서서히 보이게 함
+};

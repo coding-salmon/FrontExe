@@ -292,6 +292,8 @@ p1{
 }
 
 #gameGoScreen {
+    opacity: 0;
+    transition: opacity 1s ease-out; /* 1초 동안 서서히 투명도가 변하도록 설정 */
     position: absolute;
     width: 55%;
     max-width: 600px;
